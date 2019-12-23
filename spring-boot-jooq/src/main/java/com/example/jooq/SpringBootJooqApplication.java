@@ -9,5 +9,4 @@ public class SpringBootJooqApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootJooqApplication.class, args);
 	}
-
 }
