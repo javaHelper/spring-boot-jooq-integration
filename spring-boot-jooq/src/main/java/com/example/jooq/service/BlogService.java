@@ -25,6 +25,11 @@ public class BlogService {
 	@Autowired
 	private DSLContext dsl;
 
+	/**
+	 * Create Post
+	 * @param post
+	 * @return
+	 */
 	public Post createPost(Post post) {
 		PostsRecord postsRecord = dsl.insertInto(POSTS)
 				.set(POSTS.TITLE, post.getTitle())
@@ -36,6 +41,7 @@ public class BlogService {
 		return post;
 	}
 
+	// Get every Posts
 	public List<Post> getAllPosts() {
 		List<Post> posts = new ArrayList<>();
 		Result<Record> result = dsl.select().from(POSTS).fetch();
@@ -45,6 +51,7 @@ public class BlogService {
 		return posts;
 	}
 
+	// Get Post By PostId
 	public Post getPost(Integer postId) {
 		Record record = dsl.select().from(POSTS).where(POSTS.ID.eq(postId)).fetchOne();
 		if (record != null) {
@@ -60,6 +67,7 @@ public class BlogService {
 		return null;
 	}
 
+	// Create Comment
 	public Comment createComment(Comment comment) {
 		CommentsRecord commentsRecord = dsl.insertInto(COMMENTS)
 				.set(COMMENTS.POST_ID, comment.getPost().getId())
@@ -73,6 +81,7 @@ public class BlogService {
 		return comment;
 	}
 
+	// Delete comment
 	public void deleteComment(Integer commentId) {
 		dsl.deleteFrom(COMMENTS).where(COMMENTS.ID.equal(commentId)).execute();
 	}

@@ -1,3 +1,9 @@
+# Spring Boot JOOQ Integration
+
+@Ref: 
+
+- https://docs.spring.io/spring-boot/docs/2.2.2.RELEASE/reference/pdf/spring-boot-reference.pdf
+- https://www.jooq.org/doc/3.12.3/manual-single-page/#jooq-in-7-steps-step3
 
 Request
 
